@@ -9,14 +9,24 @@ type DestinosListProps = {
 export default function DestinosList({destinos, setDestinos, nombreUsuario}:DestinosListProps) {
 
   // 1. Define las funciones SIEMPRE antes del return para mayor claridad
-  function toggleFavorito(id: number | string) {
-    setDestinos(prevDestinos => 
-      prevDestinos.map(destino => 
-        destino.id === id 
-          ? { ...destino, esFavorito: !destino.esFavorito } // Clonamos y negamos el booleano
-          : destino // Retornamos el resto sin cambios
-      )
-    );
+  //function toggleFavorito(id: number | string) {
+  //  setDestinos(prevDestinos => 
+  //    prevDestinos.map(destino => 
+  //      destino.id === id 
+  //        ? { ...destino, esFavorito: !destino.esFavorito } // Clonamos y negamos el booleano
+  //        : destino // Retornamos el resto sin cambios
+  //    )
+  //  );
+  //}
+
+  function toggleFav (id : string){
+    setDestinos(prev => 
+        prev.map(destino =>
+          destino.id === id
+            ? {...destino, esFavorito: !destino.esFavorito}
+            : destino
+        )
+      );
   }
 
   return (
@@ -30,16 +40,21 @@ export default function DestinosList({destinos, setDestinos, nombreUsuario}:Dest
             <p className='text-sm'>{destino.descripcion}</p>
             <p className='text-xs'>{destino.icono}</p>
             <p className='text-xs'>{destino.descripcion}</p>
-            <hr />
-             <button onClick={() => toggleFavorito(destino.id)}>
-              {destino.esFavorito ? '❤️' : '🤍'}
+            <button className={ `bg-${destino.color}-800` } onClick={() => toggleFav(destino.id)}>
+              {destino.esFavorito ? "♥" : "♡"}
             </button>
+            <hr />
+             
           </div>
         ))
 
       }
       
     </>
+
+    //<button onClick={() => toggleFavorito(destino.id)}>
+     // {destino.esFavorito ? '❤️' : '🤍'}
+    //</button>
 
   )
   

@@ -11,7 +11,7 @@ function App() {
     {id:"1", nombre: "París", icono: "building.columns.fill", descripcion: "Amor y luz", color: "blue", esFavorito: false, puntuacion: 2},
     {id:"2",nombre: "Roma", icono: "globe.europe.africa.fill", descripcion: "Historia y tradición", color: "orange", esFavorito: false, puntuacion: 2},
     {id:"3",nombre: "Tokio", icono: "tram.fill", descripcion: "Neones y ramen", color: "red", esFavorito: false, puntuacion: 3},
-    {id:"4",nombre: "Colombia", icono: "environments.fill", descripcion: "Naturaleza", color: "yellow", esFavorito: true, puntuacion: 4}
+    {id:"4",nombre: "Colombia", icono: "environments.fill", descripcion: "Naturaleza", color: "lime", esFavorito: true, puntuacion: 4}
   ])
     
 
