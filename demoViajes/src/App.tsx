@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import type { Destino } from './types/Destino'
-import DestinosList from './components/DestinoList'
+// import { BrowserRouter, Routes, Route } from "react-router-dom"
+// import { Routes } from "react-router"
+import PerfilUsuario from './components/PerfilUsuario'
+import DestinoList from './components/DestinoList'
 
 // App que estoy montanto
 // https://chatgpt.com/c/697b8a41-5950-8331-9dec-3c20482ce68d
@@ -13,16 +16,50 @@ function App() {
     {id:"3",nombre: "Tokio", icono: "tram.fill", descripcion: "Neones y ramen", color: "red", esFavorito: false, puntuacion: 3},
     {id:"4",nombre: "Colombia", icono: "environments.fill", descripcion: "Naturaleza", color: "lime", esFavorito: true, puntuacion: 4}
   ])
-    
+  const [tabActual, setTabActual] = useState(0)
 
   return (
-    <>
-      <DestinosList
-        destinos={destinos}
-        setDestinos={setDestinos}
-        nombreUsuario={"Hamilton"}
-      />
-    </>
+      // <BrowserRouter>
+      //   <Routes>
+      //     <Route
+      //       path="/"
+      //       element={
+      //         <DestinoList
+      //           destinos={destinos}
+      //           setDestinos={setDestinos}
+      //           nombreUsuario={nombreUsuario}
+      //         />
+      //       }
+      //     />
+
+      //     <Route path="/perfil" element={
+      //       <PerfilUsuario
+      //         nombreUsuario={nombreUsuario}
+      //         setnombreUsuario={setnombreUsuario}
+      //       />
+      //       } />
+      //   </Routes>
+      // </BrowserRouter>
+      <div>
+        {tabActual === 0 ? (
+          <DestinoList
+            destinos={destinos}
+            setDestinos={setDestinos}
+            nombreUsuario={nombreUsuario}
+          />
+        ) : (
+          <PerfilUsuario
+            nombreUsuario={nombreUsuario}
+            setnombreUsuario={setnombreUsuario}
+          />
+        )}
+        
+        {/* Tabs abajo */}
+        <div className="tabs">
+          <button onClick={() => setTabActual(0)}>🗺️ Explorar</button>
+          <button onClick={() => setTabActual(1)}>👤 Perfil</button>
+        </div>
+      </div>
   )
 }
 

@@ -1,3 +1,4 @@
+// import { useNavigate } from "react-router-dom";
 import type { Destino } from '../types/Destino'
 
 type DestinosListProps = {
@@ -6,18 +7,8 @@ type DestinosListProps = {
         nombreUsuario: string
     }
 
-export default function DestinosList({destinos, setDestinos, nombreUsuario}:DestinosListProps) {
-
-  // 1. Define las funciones SIEMPRE antes del return para mayor claridad
-  //function toggleFavorito(id: number | string) {
-  //  setDestinos(prevDestinos => 
-  //    prevDestinos.map(destino => 
-  //      destino.id === id 
-  //        ? { ...destino, esFavorito: !destino.esFavorito } // Clonamos y negamos el booleano
-  //        : destino // Retornamos el resto sin cambios
-  //    )
-  //  );
-  //}
+export default function DestinoList({destinos, setDestinos, nombreUsuario}:DestinosListProps) {
+  // const navigate = useNavigate();
 
   function toggleFav (id : string){
     setDestinos(prev => 
@@ -31,7 +22,7 @@ export default function DestinosList({destinos, setDestinos, nombreUsuario}:Dest
 
   return (
     <>
-      <h1 className='text-[30px] sm:text-[60px]'>Hola {nombreUsuario}</h1>
+      {/* <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mb-4 rounded" onClick={() => navigate('/perfil')}>Hola {nombreUsuario || "Viajero"}</button> */}
       <hr />
       {
         destinos?.map((destino) => (
@@ -51,10 +42,6 @@ export default function DestinosList({destinos, setDestinos, nombreUsuario}:Dest
       }
       
     </>
-
-    //<button onClick={() => toggleFavorito(destino.id)}>
-     // {destino.esFavorito ? '❤️' : '🤍'}
-    //</button>
 
   )
   
