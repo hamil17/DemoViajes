@@ -23,6 +23,7 @@ export default function DestinoList({destinos, setDestinos, nombreUsuario}:Desti
   return (
     <>
       {/* <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mb-4 rounded" onClick={() => navigate('/perfil')}>Hola {nombreUsuario || "Viajero"}</button> */}
+      <h1 className='text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight'>Hola {nombreUsuario || "Viajero"}</h1>
       <hr />
       {
         destinos?.map((destino) => (

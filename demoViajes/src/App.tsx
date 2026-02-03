@@ -4,6 +4,7 @@ import type { Destino } from './types/Destino'
 // import { Routes } from "react-router"
 import PerfilUsuario from './components/PerfilUsuario'
 import DestinoList from './components/DestinoList'
+import DetalleDestino from './components/DetalleDestino'
 
 // App que estoy montanto
 // https://chatgpt.com/c/697b8a41-5950-8331-9dec-3c20482ce68d
@@ -17,6 +18,8 @@ function App() {
     {id:"4",nombre: "Colombia", icono: "environments.fill", descripcion: "Naturaleza", color: "lime", esFavorito: true, puntuacion: 4}
   ])
   const [tabActual, setTabActual] = useState(0)
+  const [vistaActual, setVistaActual] = useState<"tabs" | "detalle">("tabs")
+  const [destinoSeleccionado, setDestinoSeleccionado] = useState<Destino | null>(null)
 
   return (
       // <BrowserRouter>
@@ -53,6 +56,12 @@ function App() {
             setnombreUsuario={setnombreUsuario}
           />
         )}
+
+        <DetalleDestino
+          destinos={destinos}
+          setDestinos={setDestinos}
+          // onBack={"/"}
+        />
         
         {/* Tabs abajo */}
         <div className="tabs">
